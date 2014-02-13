@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvSamplingFreq"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:text="Sampling Frequency"
+        android:background="@android:color/darker_gray" />
+    
+    <Spinner
+        android:id = "@+id/frequency"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSamplingFreq"/>
+    
+    <Button
+        android:id="@+id/startrec"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frequency"
+        android:text="Start Recording" />
+    <Button
+        android:id="@+id/stoprec"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startrec"
+        android:text="Stop Recording" />
+    <Button
+        android:id="@+id/playback"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stoprec"
+        android:text="Play Back"
+        android:visibility="invisible" />
+    
+    <Button
+        android:id="@+id/bSaveAudioNote"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playback"
+        android:text="Save Note"
+        android:visibility="invisible" />
+    
+      <Button
+        android:id="@+id/bShowNoteList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Show Previous Notes" />
+
+</RelativeLayout>
