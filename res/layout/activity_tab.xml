@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_tabs"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#36454F" >
+
+    <Button
+            android:id="@+id/btnWriteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:text="WriteNote" />
+     
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnWriteNote"
+        android:layout_margin="20dp"
+        android:background="#BFBFBF"
+        android:focusable="true" >
+    </LinearLayout>
+    <!--
+          <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+    -->
+
+</RelativeLayout>
