@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.mobiuso.mine.databasehandlers.DiaryDbHandler;
+import com.mobiuso.mine.listadapters.NoteListAdapter;
 
 public class NoteListActivity extends Activity {
 

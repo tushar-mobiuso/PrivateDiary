@@ -48,6 +48,13 @@
         android:text="Save Note"
         android:visibility="invisible" />
     
+     <Button
+        android:id="@+id/bShowLocation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bShowNoteList"
+        android:text="ShowLocation"/>
+     
       <Button
         android:id="@+id/bShowNoteList"
         android:layout_width="fill_parent"

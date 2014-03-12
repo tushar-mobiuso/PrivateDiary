@@ -14,11 +14,13 @@ import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.mobiuso.mine.databasehandlers.DiaryDbHandler;
+import java.util.List;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -33,14 +35,18 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.mobiuso.mine.databasehandlers.DiaryDbHandler;
+import com.mobiuso.mine.services.LocationTracker;
+
 public class AudioRecordActivity extends Activity {
 
 	Integer[] freqset = { 11025, 16000, 22050, 44100 };
 	private ArrayAdapter<Integer> adapter;
 	private String path;
+	
 
 	Spinner spFrequency;
-	Button startRec, stopRec, playBack, saveNote, showNoteList;
+	Button startRec, stopRec, playBack, saveNote, showNoteList, showLocation;
 
 	Boolean recording;
 
@@ -54,6 +60,7 @@ public class AudioRecordActivity extends Activity {
 		playBack = (Button) findViewById(R.id.playback);
 		saveNote = (Button) findViewById(R.id.bSaveAudioNote);
 		showNoteList = (Button) findViewById(R.id.bShowNoteList);
+		showLocation = (Button) findViewById(R.id.bShowLocation);
 
 		// saveNote.setVisibility(View.INVISIBLE);
 
@@ -63,6 +70,7 @@ public class AudioRecordActivity extends Activity {
 		playBack.setOnClickListener(playBackOnClickListener);
 		saveNote.setOnClickListener(saveNoteOnClickListener);
 		showNoteList.setOnClickListener(showNoteListOnClickListener);
+		showLocation.setOnClickListener(showLocationOnClickListener);
 
 		spFrequency = (Spinner) findViewById(R.id.frequency);
 		adapter = new ArrayAdapter<Integer>(this,
@@ -120,6 +128,31 @@ public class AudioRecordActivity extends Activity {
 					Toast.LENGTH_SHORT).show();
 		}
 	};
+
+	OnClickListener showLocationOnClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+//			Intent in = new Intent();
+			LocationTracker locationTracker = new LocationTracker(AudioRecordActivity.this);
+			double latitude = locationTracker.getLatitude();
+			double longitude = locationTracker.getLongitude();
+			
+			Toast.makeText(AudioRecordActivity.this, " Latitude : " + latitude + "Longitude: " + longitude , Toast.LENGTH_LONG).show();
+		
+			Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());                 
+			try {
+			    List<Address> listAddresses = geocoder.getFromLocation(latitude, longitude, 1);
+			    if(null!=listAddresses&&listAddresses.size()>0){
+			        String _Location = listAddresses.get(0).getAddressLine(0);
+			        Toast.makeText(AudioRecordActivity.this, _Location, Toast.LENGTH_LONG).show();
+			    }
+			} catch (IOException e) {
+			    e.printStackTrace();
+			}
+
+			}
+		};
 
 	OnClickListener showNoteListOnClickListener = new OnClickListener() {
 		@Override
