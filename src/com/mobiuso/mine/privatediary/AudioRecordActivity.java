@@ -83,7 +83,7 @@ public class AudioRecordActivity extends Activity {
 	OnClickListener startRecOnClickListener = new OnClickListener() {
 
 		@Override
-		public void onClick(View arg0) {
+		public void onClick(View v) {
 
 			Toast.makeText(AudioRecordActivity.this, "Recording Started",
 					Toast.LENGTH_SHORT).show();
@@ -100,7 +100,7 @@ public class AudioRecordActivity extends Activity {
 
 	OnClickListener stopRecOnClickListener = new OnClickListener() {
 		@Override
-		public void onClick(View arg0) {
+		public void onClick(View v) {
 			recording = false;
 			Toast.makeText(AudioRecordActivity.this, "Recording Stopped",
 					Toast.LENGTH_SHORT).show();
@@ -122,7 +122,7 @@ public class AudioRecordActivity extends Activity {
 			String currentDate = DateFormat.getDateInstance()
 					.format(new Date());
 			DiaryDbHandler db = new DiaryDbHandler(AudioRecordActivity.this);
-			db.addNoteRecord(Calendar.getInstance().getTime().toString(),
+			db.addAudioNoteRecord(Calendar.getInstance().getTime().toString(),
 					currentDate, path);
 			Toast.makeText(AudioRecordActivity.this, "Note added",
 					Toast.LENGTH_SHORT).show();
@@ -244,5 +244,4 @@ public class AudioRecordActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-
 }

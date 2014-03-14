@@ -25,7 +25,7 @@ public class PrivateDiaryActivity extends Activity {
 
 		File f = new File(Environment.getExternalStorageDirectory()
 				+ "/PrivateDiary/MyData");
-//		if (!f.exists()) 
+		if (!f.exists()) 
 		{
 			f.mkdirs();
 		}
@@ -62,12 +62,4 @@ public class PrivateDiaryActivity extends Activity {
 			}
 		});
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_private_diary, menu);
-		return true;
-	}
-
 }

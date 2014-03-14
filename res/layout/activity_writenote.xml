@@ -3,85 +3,70 @@
     android:id="@+id/feedback"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
+    android:layout_marginTop="20dp"
     android:background="@drawable/feedback_background"
+    android:orientation="vertical"
     android:padding="25dp" >
 
-    <ScrollView
-        android:id="@+id/scrollView1"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        >
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/tvNote"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-              
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp" >
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="5dp"
+            android:text="Note"
+            android:textColor="#B7CEEC"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/ivCloseFeedbackView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/close" />
+        <EditText
+            android:id="@+id/etUserNote"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/tvNote"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:background="#ffffff"
+            android:ems="10"
+            android:gravity="top|left"
+            android:hint="Write Note here"
+            android:inputType="textAutoCorrect|textMultiLine"
+            android:minLines="6"
+            android:padding="5dp"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
+            android:textStyle="italic" >
 
-            <TextView
-                android:id="@+id/tvFeedback"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:padding="5dp"
-                android:text="Note"
-                android:textColor="#B7CEEC"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <requestFocus />
+        </EditText>
 
-<!--             <Spinner -->
-<!--                 android:id="@+id/feedbacktype" -->
-<!--                 android:layout_width="match_parent" -->
-<!--                 android:layout_height="wrap_content" -->
-<!--                 android:layout_centerHorizontal="true" -->
-<!--                 android:layout_below="@+id/tvFeedback" -->
-<!--                 android:layout_marginBottom="10dp" -->
-<!--                 android:dropDownSelector="#B7CEEC"/> -->
+        <Button
+            android:id="@+id/btnSaveNote"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/etUserNote"
+            android:background="@drawable/roundbutton"
+            android:padding="5dp"
+            android:text="Submit" />
+    </RelativeLayout>
 
-            <EditText
-                android:id="@+id/etUserFeedBack"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_below="@+id/tvFeedback"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/roundbutton"
-                android:ems="10"
-                android:gravity="top|left"
-                android:hint="Write Note here"
-                android:inputType="textAutoCorrect|textMultiLine"
-                android:minLines="6"
-                android:padding="5dp"
-                android:scrollHorizontally="false"
-                android:singleLine="false"
-                
-                android:textStyle="italic" />
-
-            <Button
-                android:id="@+id/btnSubmitFeedback"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_below="@+id/etUserFeedBack"
-                android:background="@drawable/roundbutton"
-                android:padding="5dp"
-                android:text="Submit"
-                 />
-
-        </RelativeLayout>
-    </ScrollView>
+    <ImageView
+        android:id="@+id/ivClosePopUpView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/close" />
 
 </RelativeLayout>
